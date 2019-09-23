@@ -1,0 +1,35 @@
+<a class="eventLink" style="display:block" href="{{event.url}}">
+  <div class="eventItemWrapper">
+
+    <div class="titleText">
+      <span>{{event.title}}</span>
+    </div>
+    
+    <!-- Need to change the background color to match category bg color -->
+    <div class="categoryText">
+      <span style="{{-html-safe (concat "background-color: " event.bg_col ";")}}">{{event.category}}</span>
+    </div>
+
+    <div class="speakerContainer mt-5px">
+      {{#if event.speakers}}
+        <div class="speakerWrapper">
+          <div class="speakerList">
+            <!--<span class="speakerText">With</span>-->
+            
+            {{#each event.speakers as |speaker|}}
+              <span class="speakerText">{{{speaker}}}</span>
+              <!--<div class="speaker">
+                <span class="speakerText">{{{speaker}}}</span>
+              </div>-->
+            {{/each}}
+          </div>
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="timesWrapper">
+      <div class="startTime"><span>{{event.startTime}}</span></div>
+      <!--<div class="endTime"><span>{{event.endTime}}</span></div>-->
+    </div>
+  </div>
+</a>

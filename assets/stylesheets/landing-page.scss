@@ -1,0 +1,201 @@
+
+/* 
+    ------------------------------
+    HELPERS
+    ------------------------------
+*/
+
+.display-1 {
+  font-size: 6rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-2 {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-3 {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+.display-4 {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+/**/
+
+
+
+.no-display {
+  display: none;
+}
+
+
+.scrollable {
+    cursor: pointer; 
+    color: #7392B7 !important;
+}
+
+.button-icon {
+    color: #f0b63f;
+    font-size: 2rem;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding-top: 2rem;
+    font-size: 4rem;
+}
+
+.loading-spinner svg{
+  animation: loading-spinner 2s infinite linear;
+}
+
+@keyframes loading-spinner{
+  0%{
+    transform:rotate(0deg)
+  } 
+  to
+  {
+    transform:rotate(1turn)
+  }
+}
+
+/* 
+    ------------------------------
+    CLOCK SECTION
+    ------------------------------
+*/
+
+#clock-main {
+}
+
+#clock-main .col > div {
+    background-color: #7992b4;
+}
+
+
+
+/* 
+    ------------------------------
+    EVENTS SECTION
+    ------------------------------
+*/
+
+.titleText {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.custom-button {
+    padding: 9px 18px;
+    font-size: 1.1487em;
+    line-height: 1;
+    border: none;
+    font-weight: normal;
+    background: #4f868e;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.custom-button > .custom-button-link {
+    color:white;
+}
+
+.custom-button:hover{
+    background: darken(#4f868e, 10%);
+}
+
+.eventLink {
+    padding: 10px 0;
+    color: initial;
+    
+    border-bottom: 2px solid rgba(15,70,100,0.12);
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.eventLink:hover {
+    background-color: rgba(160,200,220,0.12);
+    color: #00467F !important;
+}
+
+.eventLink:visited{
+    color: initial;
+}
+
+.eventListTitle {
+    margin: 8px 0;
+    font-size: 35px;
+    font-weight: 900;
+    color: #7392B7;
+    border-bottom: 2px solid rgba(15,70,100,0.12);
+}
+
+.eventItemWrapper {
+    padding: 5px 10px;
+}
+
+.titleText {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.categoryText {
+    font-size: 14px;
+    padding: 3px 0;
+    color: white;
+}
+
+.categoryText span {
+  padding: 4px;
+}
+
+.mt-5px {
+  margin-top: 5px;
+}
+
+.timesWrapper {
+    display: inline-block;
+    margin: 6px 0px;
+}
+
+.startTime {
+    display: inline-block;
+}
+
+/*
+.startTime:after{
+    content: '-';
+    margin: 0 14px;
+}
+*/
+
+.endTime {
+    display: inline-block;
+}
+
+.speakerText {
+    color: #00467F;
+    font-weight: 600;
+}
+
+/*
+.eventsWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.eventsContainer .ember-view:not(:first-child) {
+    position: relative;
+    top: -2px;
+}
+*/

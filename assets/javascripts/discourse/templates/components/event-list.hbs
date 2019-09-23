@@ -1,0 +1,22 @@
+<div class="eventListContainer">
+  
+  <!-- Title of list -->
+  <div>
+    <h4 class="display-4 border-bottom">{{label}}</h4>
+  </div>
+
+
+  <div class="eventsContainer">
+
+  	<!-- If list is empty then show some type of loading indication-->
+  	{{#if isListEmpty}}
+  		<div class="loading-spinner main-text-color">
+				{{d-icon 'spinner'}}
+			</div>
+  	{{ else }}
+	  	{{#each events as |event| }}
+	      {{event-item event=event}}
+	    {{/each}}
+  	{{/if}}
+  </div>
+</div>

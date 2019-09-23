@@ -1,0 +1,19 @@
+plugins:
+  demosystem_enabled:
+    default: true
+    client: true
+  demosystem_api_key:
+    default: 39f810a82325454c449a42b849131b794d0d42f3cffac4e196a243c76c18304c
+    client: true
+  demosystem_user_api_key:
+    default: ivanbacher
+    client: true
+  demosystem_now_on_cat_id: 
+    default: 5
+    client: true
+  demosystem_coming_up_cat_id:
+    default: 6
+    client: true
+  demosystem_deadline:
+    default: "2019/05/10 10:00:00"
+    client: true
