@@ -363,7 +363,7 @@ function initializePlugin(api, component) {
     apiKeyUser = component.siteSettings.demosystem_user_api_key;
 
     queryEndpoint = `?api_key=${apiKey}&api_username=${apiKeyUser}`;
-    
+
     nowOnCatId = component.siteSettings.demosystem_now_on_cat_id;
     comingUpCatId = component.siteSettings.demosystem_coming_up_cat_id;
 
