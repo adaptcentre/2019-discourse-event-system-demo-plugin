@@ -12,7 +12,7 @@ register_asset "javascripts/third-party/async-2.6.2.min.js"
 register_asset "javascripts/third-party/countdown-2.6.0.min.js"
 register_asset "javascripts/third-party/moment-countdown.min.js"
 
-#register_asset "stylesheets/gridlex.min.css"
+register_asset "stylesheets/gridlex.min.css"
 register_asset "stylesheets/bootstrap-utilities.css"
 #register_asset "stylesheets/animate.css"
 register_asset "stylesheets/landing-page.scss"
