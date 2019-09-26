@@ -74,11 +74,11 @@
     ------------------------------
 */
 
-#clock-main {
-}
-
-#clock-main .col > div {
-    background-color: #7992b4;
+#clock-main #clock-main-days-col,
+#clock-main #clock-main-hours-col,
+#clock-main #clock-main-minutes-col,
+#clock-main #clock-main-seconds-col, {
+  background-color: #7992b4;
 }
 
 
