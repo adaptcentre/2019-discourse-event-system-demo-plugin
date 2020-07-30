@@ -225,7 +225,7 @@ function resolveTopic(topicData) {
     line = line.replace('</p>', '')
     line = line.trim();
 
-    if (line.startsWith('Actual URL==' || line.startsWith('URL==') || line.startsWith('url=='))) {
+    if (line.startsWith('Actual URL==') || line.startsWith('URL==') || line.startsWith('url==')){
       urlLink = line.split('==')[1].trim();
     } else if (line.startsWith('Start Time==') || line.startsWith('start time==')) {
       startTime = line.split('==')[1].trim()
