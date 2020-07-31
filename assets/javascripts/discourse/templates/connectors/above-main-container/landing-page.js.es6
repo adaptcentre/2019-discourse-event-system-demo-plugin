@@ -107,11 +107,11 @@ function calculateSlideShowImageHeight() {
   $('#media-slideshow').css('height', imgHeight + 'px');
 }
 
-function getEvents(eventId, qEnd) {
+function getEvents(eventId, headers) {
 
   let p = new Promise( (resolve, reject) => {
 
-    fetch(`/c/${eventId}.json${qEnd}`)
+    fetch(`/c/${eventId}.json`, { headers })
     .then( (res) => {
       return res.json();
     })
@@ -122,7 +122,7 @@ function getEvents(eventId, qEnd) {
       }
 
       const topics = data.topic_list.topics;
-      
+
       const asyncTasks = [];
       const qWorkers = 1;
       const throttlMS = 300;
@@ -134,7 +134,7 @@ function getEvents(eventId, qEnd) {
 
         let startTime = Date.now();
 
-        fetch(`/t/${task.topicId}.json${qEnd}`)
+        fetch(`/t/${task.topicId}.json`, { headers })
           .then( (res) => {
             return res.json();
           })
@@ -298,29 +298,29 @@ function initializePlugin(api, component) {
 
   let apiKey = null;
   let apiKeyUser = null;
-  
+  let headers = null;
+
   let comingUpCatId = null;
   let nowOnCatId = null;
 
-  let queryEndpoint = null;
   let deadline = null;
   let isEnabled = null;
   let clockInterval = null;
 
-  
+
   api.onPageChange( (url, title) => {
 
     // need to call this incase any of the values have been changed in admin panel;
-    setGlobalSettings(component);    
+    setGlobalSettings(component);
 
     // lets check if we show show or hide the complenent
     if( !isEnabled || !isCorrectUrl( url ) ) {
-      component.set('showLandingPage', false); 
+      component.set('showLandingPage', false);
       return null;
     }
-    
+
     // lets show the whole component
-    component.set('showLandingPage', true); 
+    component.set('showLandingPage', true);
 
     //lets check if we need to show the clock
     if( new Date() <= deadline ) {
@@ -337,32 +337,35 @@ function initializePlugin(api, component) {
     $( document ).ready( () => {
      $('#events-main').removeClass('no-display');
     });
-    
+
     //now lets update the events - this is async so no need to wait until doc is ready
-    
-    getEvents(comingUpCatId, queryEndpoint)
-    .then( (commingUpTopics) => {
+
+    getEvents(comingUpCatId, headers)
+    .then((commingUpTopics) => {
 
       //order topics based on order propery
       commingUpTopics.sort( (a,b) => { return a.order - b.order; });
-      
+
       component.set('nextEvents', commingUpTopics);
 
-      return getEvents(nowOnCatId, queryEndpoint);
+      return getEvents(nowOnCatId, headers);
     })
     .then( (liveTopics) => {
       liveTopics.sort( (a,b) => { return b.order - a.order; });
-      
+
       component.set('liveEvents', liveTopics);
     });
   });
 
-  
+
   function setGlobalSettings(component) {
     apiKey = component.siteSettings.demosystem_api_key;
     apiKeyUser = component.siteSettings.demosystem_user_api_key;
 
-    queryEndpoint = `?api_key=${apiKey}&api_username=${apiKeyUser}`;
+    headers = {
+      'Api-Key', apiKey,
+      'Api-Username', apiKeyUser
+    };
 
     nowOnCatId = component.siteSettings.demosystem_now_on_cat_id;
     comingUpCatId = component.siteSettings.demosystem_coming_up_cat_id;
