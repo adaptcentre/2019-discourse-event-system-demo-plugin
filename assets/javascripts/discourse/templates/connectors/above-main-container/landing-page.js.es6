@@ -363,8 +363,8 @@ function initializePlugin(api, component) {
     apiKeyUser = component.siteSettings.demosystem_user_api_key;
 
     headers = {
-      'Api-Key', apiKey,
-      'Api-Username', apiKeyUser
+      'Api-Key': apiKey,
+      'Api-Username': apiKeyUser
     };
 
     nowOnCatId = component.siteSettings.demosystem_now_on_cat_id;
